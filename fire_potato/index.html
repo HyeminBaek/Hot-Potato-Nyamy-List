@@ -6,9 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>fire_potato nyamnyam list</title>
 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
     <link href="res/css/design.css" rel="stylesheet" type="text/css" />
-
+    
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 <body>
@@ -47,10 +49,13 @@
                                         <tbody id="target">
                                         </tbody>
                                     </table>
-
-                                    <input type="button" value="checked box 일괄 삭제">
-                                    <input type="text" placeholder="먹고 싶은 메뉴">
-                                    <input type="button" value="추가">
+                                    <div class="mt-2 float-right">
+                                        <button class="btn btn-warning" onClick=foodDelete()>음식 먹었다!</button>
+                                    </div>
+                                    <div class="mt-5 mx-auto">
+                                        <input type="text" placeholder="먹고 싶은 메뉴">
+                                        <button class="btn btn-info">추가</button>
+                                    </div>    
                                 </div>
                                 <!-- end of scroll bar zone -->
                             </div>
@@ -64,20 +69,20 @@
     </div>
 </body>
 <script>
-    var target = $('#target');
+    const target = $('#target');
     fetch("http://185.162.75.92:3000/baccine").then(response => {
         return response.json();
     }).then(data =>{
         const len = Object.keys(data).length;
-        for(var i =0;i<len;i++){
-            var list = "<tr class=\"inner-box\">";
+        for(let i =0;i<len;i++){
+            let list = "<tr class=\"inner-box\">";
             list += "<th scope=\"row\">";
             list += "<div class=\"event-date\">";
             list += "<span>";
             list += data[i].created_data.substring(8,10);
             list += "</span>";
             
-            var month = data[i].created_data.substring(5,7);
+            const month = data[i].created_data.substring(5,7);
             list += "<p>";
             if(month == 1) list+="January";
             else if(month == 2) list+="Fabruary";
@@ -113,9 +118,17 @@
             list += "<div class=\"r-no\">";
             list += "<span>";
             
-            if(!data[i].is_clear) list += "<input type=\"checkbox\">";
-            else list += "■";
-
+            list += "<label class=\"switch\">";
+            list += "<input type=\"checkbox\"";
+            if(!data[i].is_clear) list += ">";
+            else list += "checked=\"checked\">";
+            
+            list += "<span class=\"slider round\"></span>";
+            list += "</label>";
+            
+            if(!data[i].is_clear) list += "<p>OFF</p>";
+            else list += "<p>ON</p>";
+            
             list += "</span>";
             list += "</div>";
             list += "</td>";
@@ -126,5 +139,30 @@
     }).catch(err => {
         alert("error!");
     });
+</script>
+<script>
+    function foodDelete(){
+        const query = 'input[name="food"]:checked';
+        const selectedEls = document.querySelectorAll(query);
+
+        let res = '';
+        selectedEls.forEach(selectedEls =>{
+            //res+=selectedEls.value+" ";
+            
+            fetch("http://185.162.75.92:3000/baccine/clear/"+selectedEls.value,{
+                method: 'PUT',              
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                }).then(response => {
+                    //return response.json();
+                }).catch(err => {
+                    alert("error!");
+                });
+            });
+        console.log(res);
+        /*
+        */
+    }
 </script>
 </html>
