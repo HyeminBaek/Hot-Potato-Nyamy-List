@@ -34,19 +34,25 @@
                     <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade active show" id="home" role="tabpanel">
                             <div class="table-responsive">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th class="text-center" scope="col">추가된 날짜</th>
-                                            <th scope="col">음식명</th>
-                                            <th scope="col">Clear</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="target">
-                                        
-                                        
-                                    </tbody>
-                                </table>
+                                <!-- scroll bar-->
+                                <div style="width:100%; height:500px; overflow: auto;">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-center" scope="col">추가된 날짜</th>
+                                                <th scope="col">음식명</th>
+                                                <th scope="col">Clear</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="target">
+                                        </tbody>
+                                    </table>
+
+                                    <input type="button" value="checked box 일괄 삭제">
+                                    <input type="text" placeholder="먹고 싶은 메뉴">
+                                    <input type="button" value="추가">
+                                </div>
+                                <!-- end of scroll bar zone -->
                             </div>
                         </div>
                     </div>
@@ -107,7 +113,7 @@
             list += "<div class=\"r-no\">";
             list += "<span>";
             
-            if(!data[i].is_clear) list += "□";
+            if(!data[i].is_clear) list += "<input type=\"checkbox\">";
             else list += "■";
 
             list += "</span>";
