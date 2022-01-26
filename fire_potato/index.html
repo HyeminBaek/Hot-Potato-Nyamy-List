@@ -23,10 +23,18 @@
                             <h2>불감자 먹킷리스트</h2>
                         </div>
                         <p style="text-align: center;">
-                            클리어에 체크하면 삭제가 되는 방식을 구상 중임다<br />
-                            테이블 스크롤 필요, 밑에 음식 추가를 위한 input 필요
+                            나는 누구인가에 본인 이름 쓰고, 메뉴 쓰면 추가하는 api 필요<br />
+                            추가된 날짜 뿐만 아니라 먹은 날짜도 나타낼 수 있음 좋겠음
                         </p>
                     </div>
+                    <div class="mt-2 float-right">
+                        <button class="btn btn-warning" onClick=foodDelete()>음식 먹었다!</button>
+                    </div>
+                    <div class="mt-5 mx-auto">
+                        <input type="text" placeholder="나는 누구인가?">
+                        <input type="text" placeholder="먹고 싶은 메뉴">
+                        <button class="btn btn-info mb-3">추가</button>
+                    </div> 
                 </div>
                 <!-- /.col end-->
             </div>
@@ -49,13 +57,6 @@
                                         <tbody id="target">
                                         </tbody>
                                     </table>
-                                    <div class="mt-2 float-right">
-                                        <button class="btn btn-warning" onClick=foodDelete()>음식 먹었다!</button>
-                                    </div>
-                                    <div class="mt-5 mx-auto">
-                                        <input type="text" placeholder="먹고 싶은 메뉴">
-                                        <button class="btn btn-info">추가</button>
-                                    </div>    
                                 </div>
                                 <!-- end of scroll bar zone -->
                             </div>
@@ -126,8 +127,8 @@
             list += "<span class=\"slider round\"></span>";
             list += "</label>";
             
-            if(!data[i].is_clear) list += "<p>OFF</p>";
-            else list += "<p>ON</p>";
+            if(!data[i].is_clear) list += "<p>안머금</p>";
+            else list += "<p>머금</p>";
             
             list += "</span>";
             list += "</div>";
