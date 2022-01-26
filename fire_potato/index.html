@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fire_potato nyamnyam list</title>
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="res/css/design.css" rel="stylesheet" type="text/css" />
+
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+<body>
+    <div class="event-schedule-area-two bg-color pad100">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title text-center">
+                        <div class="title-text" style="text-align: center;">
+                            <h2>불감자 먹킷리스트</h2>
+                        </div>
+                        <p style="text-align: center;">
+                            클리어에 체크하면 삭제가 되는 방식을 구상 중임다<br />
+                            테이블 스크롤 필요, 밑에 음식 추가를 위한 input 필요
+                        </p>
+                    </div>
+                </div>
+                <!-- /.col end-->
+            </div>
+            <!-- row end-->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade active show" id="home" role="tabpanel">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center" scope="col">추가된 날짜</th>
+                                            <th scope="col">음식명</th>
+                                            <th scope="col">Clear</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="target">
+                                        
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /col end-->
+            </div>
+            <!-- /row end-->
+        </div>
+    </div>
+</body>
+<script>
+    var target = $('#target');
+    fetch("http://185.162.75.92:3000/baccine").then(response => {
+        return response.json();
+    }).then(data =>{
+        const len = Object.keys(data).length;
+        for(var i =0;i<len;i++){
+            var list = "<tr class=\"inner-box\">";
+            list += "<th scope=\"row\">";
+            list += "<div class=\"event-date\">";
+            list += "<span>";
+            list += data[i].created_data.substring(8,10);
+            list += "</span>";
+            
+            var month = data[i].created_data.substring(5,7);
+            list += "<p>";
+            if(month == 1) list+="January";
+            else if(month == 2) list+="Fabruary";
+            else if(month == 3) list+="March";
+            else if(month == 4) list+="April";
+            else if(month == 5) list+="May";
+            else if(month == 6) list+="June";
+            else if(month == 7) list+="July";
+            else if(month == 8) list+="August";
+            else if(month == 9) list+="September";
+            else if(month == 10) list+="October";
+            else if(month == 11) list+="November";
+            else if(month == 12) list+="December";
+            list += "</p>";
+
+            list += "</div>";
+            list += "</th>";
+            list += "<td>";
+            list += "<div class=\"event-wrap\">";
+            list += "<h3>";
+            list += data[i].name;
+            list += "</h3>";
+            
+            list += "<div class=\"meta\">";
+            list += "<div class=\"organizers\">";
+            list += data[i].created_by;
+            list += "</div>";
+            list += "</div>";
+            list += "</div>";
+            list += "</td>";
+
+            list += "<td>";
+            list += "<div class=\"r-no\">";
+            list += "<span>";
+            
+            if(!data[i].is_clear) list += "□";
+            else list += "■";
+
+            list += "</span>";
+            list += "</div>";
+            list += "</td>";
+            list += "</tr>";
+
+            target.append(list);
+        }
+    }).catch(err => {
+        alert("error!");
+    });
+</script>
+</html>
