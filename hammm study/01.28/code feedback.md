@@ -21,7 +21,7 @@
 조언
 
 1. 앞으로 모든 js 접두에 use strict; 를 쓰자!
-![image](https://user-images.githubusercontent.com/55080554/151549073-1b959bab-0ea0-4836-9cf7-36302650eeb4.png)
 2. .env(api/mongoDB/nginx) -> docker-compose.yml
 3. shift는 반대의 역할을 수행한다 ex. ctrl+z <-> ctrl+shift+z
 ~~~
+![image](https://user-images.githubusercontent.com/55080554/151549073-1b959bab-0ea0-4836-9cf7-36302650eeb4.png)
