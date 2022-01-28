@@ -17,3 +17,11 @@
 3. 이벤트 버블링 배워와!
 4. <table>은 구닥다리, <ul><li> 를 많이 쓴다
 ~~~  
+~~~
+조언
+
+1. 앞으로 모든 js 접두에 use strict; 를 쓰자!
+![image](https://user-images.githubusercontent.com/55080554/151549073-1b959bab-0ea0-4836-9cf7-36302650eeb4.png)
+2. .env(api/mongoDB/nginx) -> docker-compose.yml
+3. shift는 반대의 역할을 수행한다 ex. ctrl+z <-> ctrl+shift+z
+~~~
