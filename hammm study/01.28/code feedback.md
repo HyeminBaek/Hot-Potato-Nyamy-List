@@ -10,7 +10,7 @@
 8. <meta name="viewport" content="width=device-width, initial-scale=1.0"> //width를 디바이스에 맞게 해준다!
 9. 인라인 스타일 추가하지 말고 css 클래스 추가해서 진행 -> css 네이밍 규칙 __ (언더바2개) 사용
 10. 어떨 때 인라인, important을 쓰는지 이해
-
+11. script type module -> html 대신 사용하기
 
 1. onClick이 협업,캡슐화에 효율적인가? -> 관심사의 분리/ addEventListner
 2. onClick 다 뺄 것
