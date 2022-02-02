@@ -21,6 +21,7 @@ framework: html, vanilla javascript
 ~~~
 To. BE Developer
 지금 데이터 상태가 다음과 같이 순서가 일정하지 않은데, 이 부분 수정부탁드립니다
-![image](https://user-images.githubusercontent.com/55080554/152171668-a71c2d17-b5cf-47e2-822b-ca68ddf1d63f.png)
 
 ~~~
+![image](https://user-images.githubusercontent.com/55080554/152171668-a71c2d17-b5cf-47e2-822b-ca68ddf1d63f.png)
+
