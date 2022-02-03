@@ -1,3 +1,4 @@
+<!-- https://kay0426.tistory.com/27 -->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -26,9 +27,6 @@
                             나는 누구인가에 본인 이름 쓰고, 메뉴 쓰면 추가하는 api 필요<br />
                             추가된 날짜 뿐만 아니라 먹은 날짜도 나타낼 수 있음 좋겠음
                         </p>
-                    </div>
-                    <div class="mt-2 float-right">
-                        <button class="btn btn-warning" onClick=foodDelete()>음식 먹었다!</button>
                     </div>
                     <div class="mt-5 mx-auto">
                         <input type="text" placeholder="나는 누구인가?">
@@ -120,7 +118,7 @@
             list += "<span>";
             
             list += "<label class=\"switch\">";
-            list += "<input type=\"checkbox\"";
+            list += "<input type=\"checkbox\" onclick=\"stateUpdate(this)\" name=\""+i+"\"";
             if(!data[i].is_clear) list += ">";
             else list += "checked=\"checked\">";
             
@@ -142,15 +140,10 @@
     });
 </script>
 <script>
-    function foodDelete(){
-        const query = 'input[name="food"]:checked';
-        const selectedEls = document.querySelectorAll(query);
-
-        let res = '';
-        selectedEls.forEach(selectedEls =>{
-            //res+=selectedEls.value+" ";
-            
-            fetch("http://185.162.75.92:3000/baccine/clear/"+selectedEls.value,{
+    function stateUpdate(element){
+        if(!element.checked) {
+            console.log(Number(element.name)+1);
+            fetch("http://185.162.75.92:3000/baccine/unclear/"+(Number(element.name)+1),{
                 method: 'PUT',              
                 headers: {
                     'Content-Type': 'application/json',
@@ -160,10 +153,18 @@
                 }).catch(err => {
                     alert("error!");
                 });
-            });
-        console.log(res);
-        /*
-        */
+        } else {
+            fetch("http://185.162.75.92:3000/baccine/clear/"+(Number(element.name)+1),{
+                method: 'PUT',              
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                }).then(response => {
+                    //return response.json();
+                }).catch(err => {
+                    alert("error!");
+                });
+        }
     }
 </script>
 </html>
