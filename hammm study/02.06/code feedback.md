@@ -4,6 +4,9 @@ rm -rf:
 git clone [원격 레포지토리 URL]:
 git log: ':Q'
 code . :
+git status: 
+git add --all:
+git push 원격저장소이름 브랜치이름:
 
 js 파일 분리 관습: 외부 라이브러리는 public 디렉토리, 개인 js는 src 디렉토리에 넣는다
 
