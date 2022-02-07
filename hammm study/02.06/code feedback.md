@@ -20,10 +20,10 @@ git branch:
 rm -rf:
 git clone [원격 레포지토리 URL]:
 git log: ':Q'
-code . :
+code . : 현재 디렉토리 기준으로 vs code 실행
 git status: 
 git add --all:
-git push 원격저장소이름 브랜치이름:
+git push 원격저장소이름 브랜치이름
 ~~~
   
 ## [ 코드 리뷰 ]
