@@ -1,4 +1,4 @@
-[ git command ]
+## [ git command ]
 ~~~
 git branch: 
 rm -rf:
@@ -9,7 +9,7 @@ git status:
 git add --all:
 git push 원격저장소이름 브랜치이름:
 ~~~
-[ 배운 것 ]
+## [ 배운 것 ]
 js 파일 분리 관습: 외부 라이브러리는 public 디렉토리, 개인 js는 src 디렉토리에 넣는다
 
 파일을 함수단위로 분리하는 거 X -> 역할에 초점 ex. API 요청만 하는 것들, DOM 렌더링만 하는 것들로 묶는다
@@ -25,7 +25,7 @@ html 구조: 브라우저는 코드를 순서대로 읽는다
 <br>-> 언제 <script>가 바인딩 되는지에 따라 다음과 같은 3가지 형태로 사용된다
 <br>*** <script>가 바인딩이 언제 되는가? 가 key point
   
-[ 코드 리뷰 ]
+## [ 코드 리뷰 ]
 내가 정한 idx 값 말고, DB에 있는 index를 가져오자! -> order가 인덱스 값
 
 ---
