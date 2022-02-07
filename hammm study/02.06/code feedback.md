@@ -20,9 +20,8 @@ DB에 있는 index를 가져오자! -> order가 인덱스 값
 <br>promise, async, await
 <br>fetch.then.catch
 
-'랑 "랑 병행해서 사용하면 나중에 syntax error가 발생할 수 있다->통일할 것!
-
-\" -> ' 로 사용
+>'랑 "랑 병행해서 사용하면 나중에 syntax error가 발생할 수 있다->통일할 것!
+>\" -> ' 로 사용
 
 ---
 
