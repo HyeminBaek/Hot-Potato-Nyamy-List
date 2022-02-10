@@ -21,31 +21,6 @@ const month_split = function(created_data) {
         case('12'): return "December";
     }
 }
-//토글 버튼 이벤트
-const stateUpdate = (is_clear,) => {
-    if(!element.checked) {
-        //console.log(Number(element.name)+1);
-        fetch("http://185.162.75.92:3000/baccine/unclear/"+(Number(element.name)+1),{
-            method: 'PUT',              
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            }).then(response => {
-            }).catch(err => {
-                alert("error!");
-            });
-    } else {
-        fetch("http://185.162.75.92:3000/baccine/clear/"+(Number(element.name)+1),{
-            method: 'PUT',              
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            }).then(response => {
-            }).catch(err => {
-                alert("error!");
-            });
-    }
-}
 // 먹킷리스트를 가져오는 함수
 const getAllList = () => {
     fetch("http://185.162.75.92:3000/baccine")
@@ -61,20 +36,10 @@ const getAllList = () => {
 
             let clearOffset;
             if (is_clear) {
-                clearOffset = `
-                    <label class="switch">
-                        <input type="checkbox" class="chkbox" name=${order} checked="checked" />
-                        <span class="slider round"></span>
-                    </label>
-                `;
+                clearOffset = `<input type="checkbox" class="chkbox" name=${order} checked="checked" />`;
             }
             else {
-                clearOffset = `
-                    <label class="switch">
-                        <input type="checkbox" class="chkbox" name=${order} />
-                        <span class="slider round"></span>
-                    </label>
-                `;
+                clearOffset = `<input type="checkbox" class="chkbox" name=${order} />`;
             }
 
             let list = `
@@ -103,20 +68,50 @@ const getAllList = () => {
                     <td>
                         <div class="r-no">
                             <span>
-                                ${clearOffset}
+                                <label class="switch">
+                                    ${clearOffset}
+                                    <span class="slider round"></span>
+                                </label>
                                 ${(is_clear) ? "<p>머금</p>" : "<p>안머금</p>"}
                             </span>
                         </div>
                     </td>
                 </tr>
             `;
-
+            //토글 버튼 이벤트 연결
+            const chkValue = document.getElementsByClassName("chkbox");
+            chkValue.addEventListener("change",stateUpdate());
 
             target.innerHTML+=list;
         }
     }).catch(err => {
         alert("error!");
     });
+}
+//토글 버튼 이벤트
+const stateUpdate = (this) => {
+    console.log(element);
+    if(!element.checked) {
+        fetch("http://185.162.75.92:3000/baccine/unclear/"+(Number(element.name)+1),{
+            method: 'PUT',              
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            }).then(response => {
+            }).catch(err => {
+                alert("error!");
+            });
+    } else {
+        fetch("http://185.162.75.92:3000/baccine/clear/"+(Number(element.name)+1),{
+            method: 'PUT',              
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            }).then(response => {
+            }).catch(err => {
+                alert("error!");
+            });
+    } 
 }
 
 getAllList();
