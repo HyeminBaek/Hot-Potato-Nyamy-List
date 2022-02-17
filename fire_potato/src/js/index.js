@@ -78,21 +78,25 @@ const getAllList = () => {
                     </td>
                 </tr>
             `;
-            //토글 버튼 이벤트 연결
-            const chkValue = document.getElementsByClassName("chkbox");
-            chkValue.addEventListener("change",stateUpdate());
 
             target.innerHTML+=list;
         }
+
+        //토글 버튼 이벤트 연결
+        const chkValue = document.querySelectorAll(".chkbox");
+        for(let i = 0;i<chkValue.length;i++){
+            chkValue[i].addEventListener("change",stateUpdate(chkValue[i]));
+        }
+
     }).catch(err => {
         alert("error!");
     });
 }
 //토글 버튼 이벤트
-const stateUpdate = (this) => {
-    console.log(element);
+const stateUpdate = (element) => {
     if(!element.checked) {
-        fetch("http://185.162.75.92:3000/baccine/unclear/"+(Number(element.name)+1),{
+        console.log(element.name);
+        fetch("http://185.162.75.92:3000/baccine/unclear/"+(element.name),{
             method: 'PUT',              
             headers: {
                 'Content-Type': 'application/json',
@@ -102,7 +106,7 @@ const stateUpdate = (this) => {
                 alert("error!");
             });
     } else {
-        fetch("http://185.162.75.92:3000/baccine/clear/"+(Number(element.name)+1),{
+        fetch("http://185.162.75.92:3000/baccine/clear/"+(element.name),{
             method: 'PUT',              
             headers: {
                 'Content-Type': 'application/json',
