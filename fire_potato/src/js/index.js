@@ -89,31 +89,32 @@ const getAllList = () => {
         }
 
     }).catch(err => {
-        alert("error!");
+        alert("error!0");
     });
 }
 //토글 버튼 이벤트
 const stateUpdate = (element) => {
     if(!element.checked) {
-        console.log(element.name);
-        fetch("http://185.162.75.92:3000/baccine/unclear/"+(element.name),{
+        
+        fetch(("http://185.162.75.92:3000/baccine/unclear/"+element.name),{
             method: 'PUT',              
             headers: {
                 'Content-Type': 'application/json',
             },
             }).then(response => {
+                console.log(element.name);
             }).catch(err => {
-                alert("error!");
+                alert("error1!");
             });
     } else {
-        fetch("http://185.162.75.92:3000/baccine/clear/"+(element.name),{
+        fetch(("http://185.162.75.92:3000/baccine/clear/"+element.name),{
             method: 'PUT',              
             headers: {
                 'Content-Type': 'application/json',
             },
             }).then(response => {
             }).catch(err => {
-                alert("error!");
+                alert("error2!");
             });
     } 
 }
