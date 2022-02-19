@@ -104,7 +104,7 @@ const stateUpdate = (element) => {
                 'Content-Type': 'application/json',
             },
             }).then(response => {
-                console.log(element.name);
+                //console.log(element.name);
             }).catch(err => {
                 alert("error1!");
             });
