@@ -1,8 +1,20 @@
-body{margin-top:60px;}
+body {
+    margin-top: 60px;
+}
+
 table {
-    margin:auto;
+    margin: auto;
     text-align: center;
 }
+
+/* ========================================
+공통 CSS 적용
+======================================== */
+
+.text__center {
+    text-align: center !important;
+}
+
 .event-schedule-area .section-title .title-text {
     margin-bottom: 50px;
 }
@@ -26,6 +38,7 @@ table {
 .event-schedule-area .tab-area .nav-item {
     margin-bottom: 75px;
 }
+
 .event-schedule-area .tab-area .nav-item .nav-link {
     text-align: center;
     font-size: 22px;
@@ -36,6 +49,7 @@ table {
     padding: 0px;
     text-transform: capitalize !important;
 }
+
 .event-schedule-area .tab-area .nav-item .nav-link.active {
     color: #4125dd;
     background-color: transparent;
@@ -45,6 +59,7 @@ table {
     margin-bottom: 0;
     width: 80%;
 }
+
 .event-schedule-area .tab-area .tab-content .table thead td,
 .event-schedule-area .tab-area .tab-content .table thead th {
     border-bottom-width: 1px;
@@ -52,11 +67,13 @@ table {
     font-weight: 600;
     color: #252525;
 }
+
 .event-schedule-area .tab-area .tab-content .table td,
 .event-schedule-area .tab-area .tab-content .table th {
     border: 1px solid #b7b7b7;
     padding-left: 30px;
 }
+
 .event-schedule-area .tab-area .tab-content .table tbody th .heading,
 .event-schedule-area .tab-area .tab-content .table tbody td .heading {
     font-size: 16px;
@@ -66,6 +83,7 @@ table {
     color: #252525;
     margin-bottom: 6px;
 }
+
 .event-schedule-area .tab-area .tab-content .table tbody th span,
 .event-schedule-area .tab-area .tab-content .table tbody td span {
     color: #4125dd;
@@ -74,6 +92,7 @@ table {
     margin-bottom: 6px;
     display: block;
 }
+
 .event-schedule-area .tab-area .tab-content .table tbody th span.date,
 .event-schedule-area .tab-area .tab-content .table tbody td span.date {
     color: #656565;
@@ -81,6 +100,7 @@ table {
     font-weight: 500;
     margin-top: 15px;
 }
+
 .event-schedule-area .tab-area .tab-content .table tbody th p {
     font-size: 14px;
     margin: 0;
@@ -98,10 +118,12 @@ table {
     border-bottom: 1px solid #dee2e6;
     margin-bottom: 30px;
 }
+
 .event-schedule-area-two ul.custom-tab li {
     margin-right: 70px;
     position: relative;
 }
+
 .event-schedule-area-two ul.custom-tab li a {
     color: #252525;
     font-size: 25px;
@@ -111,9 +133,11 @@ table {
     padding: 35px 0;
     position: relative;
 }
+
 .event-schedule-area-two ul.custom-tab li a:hover:before {
     width: 100%;
 }
+
 .event-schedule-area-two ul.custom-tab li a:before {
     position: absolute;
     left: 0;
@@ -126,6 +150,7 @@ table {
     -o-transition: all 0.4s;
     transition: all 0.4s;
 }
+
 .event-schedule-area-two ul.custom-tab li a.active {
     color: #4125dd;
 }
@@ -139,42 +164,52 @@ table {
     box-shadow: 0 1px 30px rgba(0, 0, 0, 0.1);
     margin-bottom: 0;
 }
+
 .event-schedule-area-two .tab-content .table thead {
     background-color: #007bff;
     color: #fff;
     font-size: 20px;
 }
+
 .event-schedule-area-two .tab-content .table thead tr th {
     padding: 20px;
     border: 0;
 }
+
 .event-schedule-area-two .tab-content .table tbody {
     background: #fff;
 }
+
 .event-schedule-area-two .tab-content .table tbody tr.inner-box {
     border-bottom: 1px solid #dee2e6;
 }
+
 .event-schedule-area-two .tab-content .table tbody tr th {
     border: 0;
     padding: 30px 20px;
     vertical-align: middle;
 }
+
 .event-schedule-area-two .tab-content .table tbody tr th .event-date {
     color: #252525;
     text-align: center;
 }
+
 .event-schedule-area-two .tab-content .table tbody tr th .event-date span {
     font-size: 50px;
     line-height: 50px;
     font-weight: normal;
 }
+
 .event-schedule-area-two .tab-content .table tbody tr td {
     padding: 30px 20px;
     vertical-align: middle;
 }
+
 .event-schedule-area-two .tab-content .table tbody tr td .r-no span {
     color: #252525;
 }
+
 .event-schedule-area-two .tab-content .table tbody tr td .event-wrap h3 a {
     font-size: 20px;
     line-height: 20px;
@@ -183,15 +218,18 @@ table {
     -o-transition: all 0.4s;
     transition: all 0.4s;
 }
+
 .event-schedule-area-two .tab-content .table tbody tr td .event-wrap h3 a:hover {
     color: #4125dd;
 }
+
 .event-schedule-area-two .tab-content .table tbody tr td .event-wrap .categories {
     display: -webkit-inline-box;
     display: -ms-inline-flexbox;
     display: inline-flex;
     margin: 10px 0;
 }
+
 .event-schedule-area-two .tab-content .table tbody tr td .event-wrap .categories a {
     color: #252525;
     font-size: 16px;
@@ -200,20 +238,24 @@ table {
     -o-transition: all 0.4s;
     transition: all 0.4s;
 }
+
 .event-schedule-area-two .tab-content .table tbody tr td .event-wrap .categories a:before {
     content: "\f07b";
     font-family: fontawesome;
     padding-right: 5px;
 }
+
 .event-schedule-area-two .tab-content .table tbody tr td .event-wrap .time span {
     color: #252525;
 }
+
 .event-schedule-area-two .tab-content .table tbody tr td .event-wrap .organizers {
     display: -webkit-inline-box;
     display: -ms-inline-flexbox;
     display: inline-flex;
     margin: 10px 0;
 }
+
 .event-schedule-area-two .tab-content .table tbody tr td .event-wrap .organizers a {
     color: #4125dd;
     font-size: 16px;
@@ -221,18 +263,22 @@ table {
     -o-transition: all 0.4s;
     transition: all 0.4s;
 }
+
 .event-schedule-area-two .tab-content .table tbody tr td .event-wrap .organizers a:hover {
     color: #4125dd;
 }
+
 .event-schedule-area-two .tab-content .table tbody tr td .event-wrap .organizers a:before {
     content: "\f007";
     font-family: fontawesome;
     padding-right: 5px;
 }
+
 .event-schedule-area-two .tab-content .table tbody tr td .primary-btn {
     margin-top: 0;
     text-align: center;
 }
+
 .event-schedule-area-two .tab-content .table tbody tr td .event-img img {
     width: 100px;
     height: 100px;
