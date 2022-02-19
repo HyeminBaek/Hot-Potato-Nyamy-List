@@ -83,10 +83,12 @@ const getAllList = () => {
         }
 
         //토글 버튼 이벤트 연결
-        const chkValue = document.querySelectorAll(".chkbox");
-        for(let i = 0;i<chkValue.length;i++){
-            chkValue[i].addEventListener("change",stateUpdate(chkValue[i]));
+        const chkValue = document.getElementsByClassName("chkbox");
+        //console.log(chkValue);
+        for(let i =0;i<chkValue.length;i++) {
+            chkValue[i].addEventListener("change",function(){stateUpdate(chkValue[i])});
         }
+        
 
     }).catch(err => {
         alert("error!0");
@@ -94,8 +96,8 @@ const getAllList = () => {
 }
 //토글 버튼 이벤트
 const stateUpdate = (element) => {
+    console.log(1);
     if(!element.checked) {
-        
         fetch(("http://185.162.75.92:3000/baccine/unclear/"+element.name),{
             method: 'PUT',              
             headers: {
