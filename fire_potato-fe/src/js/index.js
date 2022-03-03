@@ -16,6 +16,8 @@ import { printList } from "./rendering/foodlist.js";
 export const getAllList = () => {
     fetch("http://185.162.75.92:3000/baccine") //5) fetch는 promise를 리턴
         .then(response => {
+            console.log(response);
+            console.dir(response);
             return response.json();
         })
         .then(data => {
