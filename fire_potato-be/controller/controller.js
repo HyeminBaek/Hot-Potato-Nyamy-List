@@ -1,0 +1,92 @@
+const db = require('../models/index.js'); 
+const Food = db.food; 
+
+// Create
+exports.create = (req, res) => { 
+    const food = new Food({ 
+        name: req.body.name, 
+        created_by: req.body.created_by
+    }); 
+    
+    Food.save(food) 
+    .then(data => { 
+        res.send(data); 
+    }) 
+    .catch(err => { 
+        res.status(500).send({  message: err.message  }); 
+    }); 
+}; 
+
+// Get all list
+exports.findAll = (req, res) => { 
+    Food.find() 
+    .then(data => { 
+        res.send(data); 
+    }) 
+    .catch(err => { 
+        res.status(500).send({ message: err.message }); 
+    }); 
+}; 
+
+// Get one component by id 
+exports.findOne = (req, res) => { 
+    const id = req.params.id; 
+    
+    Food.findById(id) .then(data => { 
+        if (!data) { 
+            res.status(404).send({ message: 'Not find' }); 
+        } else { 
+            res.send(data); 
+        } }) 
+        .catch(err => { 
+            res.status(500).send({ message: err.message }); 
+    }); 
+}; 
+
+// Update
+exports.clear = (req, res) => { 
+    const id = req.params.id; 
+    
+    Food.findByIdAndUpdate(id, req.body, { is_clear: true }) 
+    .then(data => { 
+        if (!data) { 
+            res.status(404).send({ message: 'Update Fail' }); 
+        } else { 
+            res.send({ message: 'Success' }); 
+        } 
+    }) 
+    .catch(err => { 
+        res.status(500).send({ message: err.message }); 
+    }); 
+}; 
+exports.unclear = (req, res) => { 
+    const id = req.params.id; 
+    
+    Food.findByIdAndUpdate(id, req.body, { is_clear: false }) 
+    .then(data => { 
+        if (!data) { 
+            res.status(404).send({ message: 'Update Fail' }); 
+        } else { 
+            res.send({ message: 'Success' }); 
+        } 
+    }) 
+    .catch(err => { 
+        res.status(500).send({ message: err.message }); 
+    }); 
+}; 
+// Delete
+exports.delete = (req, res) => {
+    const id = req.params.id; 
+
+    Food.findByIdAndRemove(id) 
+    .then(data => { 
+        if (!data) { 
+            res.status(404).send({ message: 'Delete Fail' }); 
+        } else { 
+            res.send({ message: 'Delete success'}); 
+        } 
+    }) 
+    .catch(err => { 
+        res.status(500).send({ message: err.message }); 
+    }); 
+};
