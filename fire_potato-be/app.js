@@ -1,7 +1,7 @@
 const http = require("http"); //모듈
 
 const express = require("express"); 
-const bodyParser = require("body-parser");
+const bodyParser = require("body-parser");//html의 body를 받아오기 위한 모듈 사용
 
 const app = express(); //객체 생성
 app.use(bodyParser.json()); // content-type: application/json 

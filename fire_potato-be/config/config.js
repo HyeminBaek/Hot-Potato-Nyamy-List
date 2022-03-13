@@ -1,3 +1,3 @@
 module.exports = {
-    url: 'mongodb://[username:password@][host][:port]/[defaultauthdb]?gssapiServiceName=mongodb&authSource=admin'
+    url: 'mongodb://13.125.83.77:27017/food'
 };
