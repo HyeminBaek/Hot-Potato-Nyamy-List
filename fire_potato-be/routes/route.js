@@ -1,8 +1,8 @@
 const router = require('express').Router(); 
-const food = require('../controller/controller.js'); 
+import {create,} from '../controller/controller.js';
 
 // Create
-router.post('/bacccine', food.create); 
+router.post('/bacccine', create); 
 
 // Get all list
 router.get('/bacccine', food.findAll); 

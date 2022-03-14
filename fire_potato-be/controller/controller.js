@@ -2,7 +2,7 @@ const db = require('../models/index.js');
 const Food = db.food; 
 
 // Create
-exports.create = (req, res) => { 
+export const create = (req, res) => { //req,res가 왜 매개변수로 들어갈까?
     const food = new Food({ 
         name: req.body.name, 
         created_by: req.body.created_by
@@ -18,7 +18,7 @@ exports.create = (req, res) => {
 }; 
 
 // Get all list
-exports.findAll = (req, res) => { 
+export const findAll = (req, res) => { 
     Food.find() 
     .then(data => { 
         res.send(data); 
