@@ -2,7 +2,7 @@ const db = require('../models/index.js');
 const Food = db.food; 
 
 // Create
-export const create = (req, res) => { //req,res가 왜 매개변수로 들어갈까?
+export const create = async (req, res) => { //req,res가 왜 매개변수로 들어갈까?
     const food = new Food({ 
         name: req.body.name, 
         created_by: req.body.created_by
@@ -29,7 +29,7 @@ export const findAll = (req, res) => {
 }; 
 
 // Get one component by id 
-exports.findOne = (req, res) => { 
+export const findOne = (req, res) => { 
     const id = req.params.id; 
     
     Food.findById(id) .then(data => { 
@@ -44,7 +44,7 @@ exports.findOne = (req, res) => {
 }; 
 
 // Update
-exports.clear = (req, res) => { 
+export const clear = (req, res) => { 
     const id = req.params.id; 
     
     Food.findByIdAndUpdate(id, req.body, { is_clear: true }) 
@@ -59,7 +59,7 @@ exports.clear = (req, res) => {
         res.status(500).send({ message: err.message }); 
     }); 
 }; 
-exports.unclear = (req, res) => { 
+export const unclear = (req, res) => { 
     const id = req.params.id; 
     
     Food.findByIdAndUpdate(id, req.body, { is_clear: false }) 
@@ -75,7 +75,7 @@ exports.unclear = (req, res) => {
     }); 
 }; 
 // Delete
-exports.delete = (req, res) => {
+export const deleteObj = (req, res) => {
     const id = req.params.id; 
 
     Food.findByIdAndRemove(id) 
