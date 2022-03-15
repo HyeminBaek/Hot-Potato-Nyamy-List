@@ -1,20 +1,23 @@
-const router = require('express').Router(); 
+import express from 'express';
 import {create,findAll,findOne,clear,unclear,deleteObj} from '../controller/controller.js';
 
+//라우터 객체 참조
+const router = express.Router();
+
 // Create
-router.post('/bacccine', create); 
+router.route('/bacccine').post(create); 
 
 // Get all list
-router.get('/bacccine', findAll); 
+router.route('/bacccine').get(findAll); 
 
 // Get one component by id 
-router.get('/bacccine/:id', findOne); 
+router.route('/bacccine/:id').get(findOne); 
 
 // Update
-router.put('/bacccine/clear/:id', clear); 
-router.put('/bacccine/unclear/:id', unclear); 
+router.route('/bacccine/clear/:id').put(clear); 
+router.route('/bacccine/unclear/:id').put(unclear); 
 
 // Delete
-router.delete('/bacccine/:id', deleteObj); 
+router.route('/bacccine/:id').delete(deleteObj); 
 
-module.exports = router;
+export {router};

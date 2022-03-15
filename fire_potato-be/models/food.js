@@ -1,4 +1,5 @@
-const mongoose = require('mongoose'); // for mongoDB
+import mongoose from "mongoose"; // for mongoDB
+
 const Schema = mongoose.Schema;
  
 const food = new Schema({
@@ -22,4 +23,6 @@ const food = new Schema({
 });
 
 food.set('collection', 'food'); // collection 이름 정하기
-module.exports = mongoose.model('food', food);
+mongoose.model('food', food);
+
+export default { food };

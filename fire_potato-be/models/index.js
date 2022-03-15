@@ -1,12 +1,10 @@
-const dbConfig = require('../config/config.js'); 
-const mongoose = require('mongoose'); 
+import { config } from '../config/config.js';
+import mongoose from "mongoose";
+import food from "./food.js";
 
-// Use Node.js native promise 
-mongoose.Promise = global.Promise; 
-
-const db = {}; 
+const db = {};
 db.mongoose = mongoose; 
-db.url = dbConfig.url; 
-db.food = require('./food.js')(mongoose); 
+db.url = config.url; 
+db.food = food;
 
-module.exports = db;
+export default {db};

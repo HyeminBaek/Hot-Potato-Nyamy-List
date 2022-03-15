@@ -1,7 +1,8 @@
-const http = require("http"); //모듈
-
-const express = require("express"); 
-const bodyParser = require("body-parser");//html의 body를 받아오기 위한 모듈 사용
+import http from "http";
+import express from "express";
+import bodyParser from "body-parser";//html의 body를 받아오기 위한 모듈 사용
+import {router} from "./routes/route.js";
+import db from "./models/index.js";
 
 const app = express(); //객체 생성
 app.use(bodyParser.json()); // content-type: application/json 
@@ -10,11 +11,10 @@ app.use(bodyParser.urlencoded({ extended: true })); //content-type: application/
 app.set('port', '3000');
 
 // RESTful API route for DB 
-app.use('/', require('./routes/route.js'));
+app.use('/', router);
 
 // DB Connection 
-const db = require('./models/index.js'); 
-db.mongoose.connect(db.url, { 
+connect(db.url, { 
     useNewUrlParser: true, useUnifiedTopology: true }) 
     .then(() => { 
         console.log('db.url', db.url); 

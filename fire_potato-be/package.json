@@ -11,7 +11,8 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.3",
-    "http": "0.0.1-security"
+    "http": "0.0.1-security",
+    "mongoose": "^6.2.6"
   },
-  "type":"module"
+  "type": "module"
 }
