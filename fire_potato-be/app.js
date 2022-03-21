@@ -14,7 +14,7 @@ app.set('port', '3000');
 app.use('/', router);
 
 // DB Connection 
-connect(db.url, { 
+db.mongoose.connect(db.url, { 
     useNewUrlParser: true, useUnifiedTopology: true }) 
     .then(() => { 
         console.log('db.url', db.url); 

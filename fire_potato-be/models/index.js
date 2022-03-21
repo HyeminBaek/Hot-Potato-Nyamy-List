@@ -7,4 +7,4 @@ db.mongoose = mongoose;
 db.url = config.url; 
 db.food = food;
 
-export default {db};
+export default db;

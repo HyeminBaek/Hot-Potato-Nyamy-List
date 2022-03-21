@@ -25,4 +25,4 @@ const food = new Schema({
 food.set('collection', 'food'); // collection 이름 정하기
 mongoose.model('food', food);
 
-export default { food };
+export default food;

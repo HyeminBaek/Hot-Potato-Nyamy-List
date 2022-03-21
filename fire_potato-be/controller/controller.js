@@ -8,6 +8,7 @@ export const create = async (req, res) => { //req,res가 왜 매개변수로 들
         created_by: req.body.created_by
     }); 
     
+    //save()는 promise를 반환하기 때문에 콜백이나 async/await로 처리 가능
     Food.save(food) 
     .then(data => { 
         res.send(data); 
